@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Igor Database Documentation</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="documentation.html">Documentation</a>
+                <a href="repositoryIgorDatabase.html">Download Igor</a>
+            </nav>
+        </header>
+        <main>
+            <section id="introduction">
+                <h2>Introduction</h2>
+                <p>Welcome to the Igor Database documentation. Here you will find information on how to use the API and other details about the database.</p>
+            </section>
+            <section id="api">
+                <h2>API Documentation</h2>
+                <p>Here are the available API endpoints:</p>
+                <h3>Creating a Collection</h3>
+                <pre><code>
+curl -X POST http://127.0.0.1:5000/create_collection \
+    -H "Content-Type: application/json" \
+    -d '{"collection_name": "my_collection"}'
+                </code></pre>
+                <h3>Inserting a Document</h3>
+                <pre><code>
+curl -X POST http://127.0.0.1:5000/insert_document \
+    -H "Content-Type: application/json" \
+    -d '{"collection_name": "my_collection", "document": {"name": "igor", "age": 34}}'
+                </code></pre>
+                <h3>Finding Documents</h3>
+                <pre><code>
+curl -X POST http://127.0.0.1:5000/find_documents \
+    -H "Content-Type: application/json" \
+    -d '{"collection_name": "my_collection", "query": {"name": "igor"}}'
+                </code></pre>
+                <h3>Updating a Document</h3>
+                <pre><code>
+curl -X POST http://127.0.0.1:5000/update_document \
+    -H "Content-Type: application/json" \
+    -d '{"collection_name": "my_collection", "query": {"name": "igor"}, "update": {"age": 35}}'
+                </code></pre>
+                <h3>Deleting a Document</h3>
+                <pre><code>
+curl -X POST http://127.0.0.1:5000/delete_document \
+    -H "Content-Type: application/json" \
+    -d '{"collection_name": "my_collection", "query": {"name": "igor"}}'
+                </code></pre>
+                <h3>Deleting All Documents</h3>
+                <pre><code>
+curl -X POST http://127.0.0.1:5000/delete_all_documents \
+    -H "Content-Type: application/json" \
+    -d '{"collection_name": "my_collection"}'
+                </code></pre>
+                <h3>Deleting a Collection</h3>
+                <pre><code>
+curl -X POST http://127.0.0.1:5000/delete_collection \
+    -H "Content-Type: application/json" \
+    -d '{"collection_name": "my_collection"}'
+                </code></pre>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
